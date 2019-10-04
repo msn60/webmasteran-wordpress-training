@@ -1,0 +1,29 @@
+.my-form-box{
+    border: 1px dotted rgba(123, 122, 138, 0.59);
+    margin: 4% 10%;
+    border-radius: 10px;
+    padding: 30px;
+}
+h1{
+    text-align: center;
+    margin: 1%;
+}
+.my-inside-form{
+    position: relative;
+}
+#submit{
+    position: absolute;
+    right: 0px;
+    border-radius: 12px;
+    color: grey;
+}
+table, th,td{
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 5px;
+
+}
+#show_product{
+    display: flex;
+    justify-content: center;
+    margin: 50px;}
