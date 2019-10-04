@@ -1,0 +1,21 @@
+.my-form-box{
+    margin:1% 10%;
+    border: 1px dotted darkgray;
+    border-radius: 5px;
+
+}
+form{
+    padding: 5% 5% 1%;
+}
+.button-submit{
+    text-align: center;
+    padding: 10px;
+    margin: 70px 0px 10px;
+}
+.button-submit button{
+    width: 30%;
+}
+h3{
+    padding: 3%;
+    text-align: center;
+}

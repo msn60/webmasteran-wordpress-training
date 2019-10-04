@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Horizontal navbar by float</title>
+    <style>
+        *{
+        box-sizing: border-box;
+    }
+    body{
+        font-family: vazir;
+    }
+    @font-face {
+        font-family: vazir;
+        src: url(./vazir-font/Vazir.eot) format('eot'),
+        url(./vazir-font/Vazir.woff) format('woff'),
+        url(./vazir-font/Vazir.woff2) format('woff2');
+
+    }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #dddddd;
+
+        }
+
+        li {
+            float: right;
+        }
+
+        li a {
+            display: block;
+            padding: 8px;
+        }
+
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="#home">خانه</a></li>
+    <li><a href="#news">اخبار</a></li>
+    <li><a href="#contact">تماس</a></li>
+    <li><a href="#about">درباره</a></li>
+</ul>
+
+<p><b>توجه:</b>اگر یک! DOCTYPE مشخص نشده باشد ، موارد شناور می توانند نتایج غیر منتظره ای به بار بیاورند .</p>
+<p>برای نمایش منطقه پیوند ، یک رنگ پس زمینه به لینک ها اضافه می شود. کل منطقه پیوند قابل کلیک است ، نه فقط متن</p>
+<p><b>توجه:</b> overflow: hidden به عنصر ul اضافه می شود تا از ورود عناصر li خارج از لیست جلوگیری کند</p>
+
+</body>
+</html>

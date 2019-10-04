@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Horizontal navbar by float</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            font-family: vazir;
+            margin: 0;
+        }
+        @font-face {
+            font-family: vazir;
+            src: url(./vazir-font/Vazir.eot) format('eot'),
+            url(./vazir-font/Vazir.woff) format('woff'),
+            url(./vazir-font/Vazir.woff2) format('woff2');
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+            width: 100%;
+            position: fixed;
+            top: 0;/*to fix nav bar to bootom you should give bottom:0 instead of top:0*/
+        }
+
+        li {
+            float: right;
+            border-left: 2px solid #bbb;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            background-color: #4CAF50;
+        }
+    </style>
+        </head>
+<body>
+<ul>
+    <li><a href="#home">خانه</a></li>
+    <li><a href="#news">اخبار</a></li>
+    <li><a href="#contact">تماس</a></li>
+    <li style="float:left; border-left:none"><a class="active" href="#about">درباره</a></li>
+</ul>
+<div style="padding:50px;margin-top:30px;background-color:#1abc9c;height:1500px;">
+    <h1>navigation bar ثابت شده</h1>
+    <h2>صفحه را اسکرول کنید تا نتیجه را ببینید.</h2>
+    <h2>زمانی که شما صفحه را اسکرول میکنید navigation bar به بالا چسبیده است</h2>
+
+    <p></p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+    <p>Some text some text some text some text..</p>
+</div>
+
+</body>
+</html>

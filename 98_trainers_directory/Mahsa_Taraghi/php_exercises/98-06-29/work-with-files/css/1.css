@@ -1,0 +1,9 @@
+.my-form-box{
+    border: 1px solid rgba(123, 122, 138, 0.59);
+    margin: 4% 10%;
+    border-radius: 10px;
+}
+h1{
+    text-align: center;
+    margin: 1%;
+}
