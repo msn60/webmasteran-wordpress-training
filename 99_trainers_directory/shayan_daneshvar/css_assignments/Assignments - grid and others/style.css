@@ -1,0 +1,82 @@
+.d1 {
+    background: LightSkyBlue;
+}
+
+.d2 {
+    background: LightSalmon;
+}
+
+.d3 {
+    background: PaleTurquoise;
+}
+
+.d4 {
+    background: LightPink;
+}
+
+.d5 {
+    background: PaleGreen;
+}
+
+.d6 {
+    background-color: crimson
+}
+
+.d7 {
+    background-color: greenyellow
+}
+
+.d8 {
+    background-color: blueviolet;
+}
+
+.d9 {
+    background-color: royalblue;
+    grid-column: 2/4;
+    grid-row: 2/4;
+    grid-area: heade;
+}
+
+
+.container {
+    margin: auto;
+    font-size: 42px;
+    width: 50%;
+    background: LightGray;
+    display: grid;
+
+    grid-template-columns: 120px 80px 50px 25px;
+    grid-column-gap: 30px;
+    grid-row-gap: 20px;
+    /*justify-items: center;*/
+    grid-template-areas: "heade header nothing header"
+                            "ads content content content"
+                            "footer footer footer";
+    /*grid-template-rows: 50px 50px;*/
+}
+
+/*Tasks:*/
+/*---------------------------------------------------------*/
+/*For Container: */
+
+/*display:grid;*/
+/*grid-template-columns/rows =>  px em fr auto    and repeat() (auto-fill/fit) + minmax()*/
+/*grid-column/row-gap*/
+
+/* =====>>>>*/
+/*justify/align-items*/
+
+/*grid-template-areas:*/
+/*"header header header"*/
+/*"advert content content"*/
+/*"footer footer footer";*//*===>*/
+
+/*---------------------------------------------------------*/
+/*For Items:*/
+
+/*grid-column/row:*/
+/*justify-self: *//*align-self   center start= left end=right*/
+/*=====>*/
+/*grid-area:footer*/
+/*also :=> item1 { grid-area: 1/1/2/4; };*/
+

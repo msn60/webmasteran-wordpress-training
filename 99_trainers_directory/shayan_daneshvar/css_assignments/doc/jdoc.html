@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="jdStyle.css">
+    <title>جاوا اسکریپت</title>
+    <script>
+        function greetMe(yourName) {
+            alert("Hello " + yourName);
+        }
+
+        function greetMe() {
+            alert("Hello World");
+        }
+    </script>
+</head>
+<body>
+<nav id="navbar">
+    <header>مباحث جاوا اسکریپت</header>
+    <ul>
+        <li><a href="#Introduction" class="nav-link">مقدمه</a></li>
+        <li><a href="#What you should already know" class="nav-link">پیشنیاز
+            ها</a></li>
+        <li><a class="nav-link" href="#Java And JavaScript">جاوا و جاوا
+            اسکریپت</a></li>
+        <li><a href="#HelloWorld">سلام دنیا</a></li>
+        <li><a href="#Variables">متغییر ها</a></li>
+        <li><a href="#DecVariables">تعریف متغیر ها</a></li>
+    </ul>
+</nav>
+<main id="main-doc">
+    <section class="main-section" id="Introduction">
+        <header>مقدمه</header>
+        <article>
+            <p>جاوا اسکریپت یک زبان اسکریپتی چند سکویی و شی گراست، سبک و
+                کوچک است.در هر محیطی (مثلا مرورگر) که قرار گیرد میتواند به
+                اشیای آن محیط متصل شود و قابلیت کنترل آن ها را بدست گیرد.</p>
+        </article>
+    </section>
+    <section class="main-section" id="What you should already know">
+        <header>پیش نیاز ها</header>
+        <article>
+            <p>این مطلب با این فرض تهیه شده که خواننده با موارد زیر آشنا
+                باشد:</p>
+            <ul>
+                <li>آشنایی کلی با اینترنت و شبکه جهانی وب (WWW)</li>
+                <li>دانش خوبی از زبان نشانه گذاری HTML</li>
+                <li>تجربه برنامه نویسی</li>
+            </ul>
+        </article>
+    </section>
+    <section class="main-section" id="Java And JavaScript">
+        <header>جاوا و جاوا اسکریپت</header>
+        <p>جاوا و جاوا اسکریپت شباهت ها و تفاوت هایی دارند، زبان جاوا
+            اسکریپت تا حدودی مشابه زبان جاواست به طوری که سینتکس و ساختار
+            کنترلی و سیاست های نام گذاری آن بسیار به جاوا شباهت دارد اما
+            تفاوت هایی دارد از جمله اینکه همانند جاوا از تعریف نوع متغییر به
+            صورت استاتیک (یعنی مشخص کردن نوع متغییر در زمان کامپایل) پشتیبانی
+            نمی کند، همین شباهت ها یکی دلایل اصلی تغییر نام آن از LiveScript
+            به JavaScript بوده است.</p>
+        <p>
+            جاوا اسکریپت بر خلاف سیستم زمان کامپایل جاوا برای کلاس ها، از
+            سیستم زمان اجرا (Runtime) خاصی استفاده میکند که در آن بر اساس
+            تعداد محدودی از انواع داده ها از جمله رشته ها ، مقادیر عددی و
+            بولین کار میکند. جاوا اسکریپت از مدل Prototype-Based Object Model
+            استفاده میکند در حالیکه جاوا از مدل Class-Based Object Model
+            استفاده می کند، مدل دوم رایج تر است ولی مدل اول برای ما ارث بری
+            پویا را برای ما به ارمغان میاورد به این معنی که ارث بری برای هر
+            شی می تواند متفاوت باشد.
+        </p>
+        <p>علاوه بر اینها جاوا اسکریپت زبان به مراتب ساده تری از جاواست چرا
+            که برنامه نویسی دیگر نیازی ندارد به بسیاری از مباحث از جمله
+            کپسوله سازی و یا تعریف نوع متغییر توجه داشته باشد چرا که جاوا
+            اسکریپت سطوح دسترسی همچون public - protected -private - package
+            level را ندارد.</p>
+    </section>
+    <section class="main-section" id="HelloWorld">
+        <header>سلام دنیا!!</header>
+        <p>نمونه تابعی که Hello World را چاپ کند و فراخوانی آن به شکل زیر
+            است:</p>
+        <code dir="ltr">function greetMe(yourName) { alert("Hello " + yourName);
+            }
+            greetMe("World");</code>
+        <p>شما می توانید آن را داخل فایل متنی کپی کنید و با مرورگر خود آن را
+            اجرا کنید!</p>
+        <p>این دکمه همین کار را می کند!</p>
+        <input type="button" value="سلام!" onclick="greetMe()">
+    </section>
+    <section class="main-section" id="Variables">
+        <header>متغییر ها</header>
+        <p>متغییر ها در زبان جاوا اسکریپت میتوانند با حروف ، _ و $ شروع شوند
+            و درون آن ها می توان از اعداد نیز استفاده کرد ، جاوا اسکریپت نسبت به
+            اندازه حروف حساس است.</p>
+    </section>
+    <section class="main-section" id="DecVariables">
+        <header>چگونگی تعریف متغییر</header>
+        <p>ادامه دارد ...</p>
+    </section>
+</main>
+</body>
+</html>

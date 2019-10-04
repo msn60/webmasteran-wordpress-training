@@ -1,0 +1,40 @@
+#myDiv {
+    background-color: blue;
+    width: 500px;
+    height: 500px;
+    /*transform: perspective(1000px);*/
+    transition: all 3s linear;
+    transform: perspective(200px);
+
+}
+
+#myDiv:hover{
+    background-color: red;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    transition: all 4s cubic-bezier(3,5,1,0.5);
+}
+
+div#container{
+    perspective: 1500px;
+}
+div#card{
+    transform-style: preserve-3d;
+    transform: rotateX(10deg) rotateY(140deg);
+}
+div#front:hover{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    backface-visibility: hidden;
+    transition: all 4s;
+}
+div#back:hover{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    transition: all 4s;
+}

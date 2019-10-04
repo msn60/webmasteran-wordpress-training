@@ -1,0 +1,35 @@
+p.grad {
+    /*background-image: linear-gradient(to right,#f3c843,#82db46);*/
+    font-size: 72px;
+    background: -webkit-linear-gradient(#ff0000, #888800, #008888, #0000ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+/*div{*/
+/*display: in;*/
+/*}*/
+.form-container {
+    width: 40%;
+    background-color: #008888;
+    background: red;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10%;
+
+}
+
+input[type="text"], input[type="password"], input[type="text"], input[type="submit"], select {
+    display: inline-block;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid red;
+    margin: 10px 0px;
+}
+
+input[type="submit"]:hover{
+    background-color: blue;
+    color: white;
+    transition: all 3s;
+}

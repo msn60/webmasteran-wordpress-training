@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>نظر سنجی</title>
+</head>
+<body>
+<h1 id="title">فرم نظرسنجی</h1>
+<div id="form-outer">
+    <p id="description">نظر شما به پیشرفت ما کمک میکند!</p>
+    <form id="survey-form" method="post" action="index1.html">
+        <div class="rowTab">
+            <div class="lables">
+                <label id="name-lable" for="name">*نام</label>
+            </div>
+            <div class="right-tab">
+                <input autofocus type="text" name="name" id="name" class="input-field"
+                       placeholder="نام خود را وارد کنید!" required>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="lables">
+                <label id="email-lable" for="email">*ایمیل</label>
+            </div>
+            <div class="right-tab">
+                <input autofocus type="email" name="email" id="email" class="input-field"
+                       placeholder="ایمیل خود را وارد کنید!" required>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="lables">
+                <label id="number-lable" for="age">*سن</label>
+            </div>
+            <div class="right-tab">
+                <input autofocus type="number" name="age" id="age" min="1"
+                       max="125" class="input-field" placeholder="سن خود را وارد کنید!" required>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="labels">
+                <label for="dropdown">کدام یک شما را بهتر توصیف میکند؟</label>
+            </div>
+            <div class="right-tab">
+                <select name="currentPos" id="dropdown" class="dropdown">
+                    <option disabled value>یکی را انتخاب کنید</option>
+                    <option value="student">دانشجو</option>
+                    <option value="learner">مشتاق یادگیری</option>
+                    <option value="job">شاغل</option>
+                </select>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="labels">
+                <label for="userRating">چقدر احتمال دارد ما را به دیگران معرفی کنید؟</label>
+            </div>
+            <div class="right-tab">
+                <ul style="list-style: none" id="userRating">
+                    <li class="radio">
+                        <label>
+                            قطعا
+                            <input type="radio" name="radio-buttons" value="1" class="userRatings">
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            شاید
+                            <input type="radio" name="radio-buttons" value="2" class="userRating">
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label>
+                            اصلا
+                            <input type="radio" name="radio-buttons" value="3" class="userRating">
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="lables">
+                <label for="preferences">
+                    "چه چیز هایی باید بهبود پیدا کند؟"
+                    <br>
+                    (انتخاب چند گزینه ممکن است)
+                </label>
+            </div>
+            <div class="right-tab">
+                <ul id="preferences" style="list-style: none">
+                    <li class="checkbox">
+                        <label>
+                            <input type="checkbox" value="1" name="prefer" class="userRatings">
+                            "طراحی برنامه"
+                        </label>
+                    </li>
+                    <li class="checkbox">
+                        <label>
+                            <input type="checkbox" value="2" name="prefer" class="userRatings">
+                            "تدارکات"
+                        </label>
+                    </li>
+                    <li class="checkbox">
+                        <label>
+                            <input type="checkbox" value="3" name="prefer" class="userRatings">
+                            "تدرس"
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="rowTab">
+            <div class="lables">
+                <label for="comments"> پیشنهادات و انتقادات</label>
+            </div>
+            <div class="right-tab">
+                <textarea name="comment" id="comments" class="input-field" style="height: 50px;resize: vertical"
+                          placeholder="نظر خود را اینجا وارد کنید!"></textarea>
+            </div>
+        </div>
+        <button id="submit" type="submit">ثبت</button>
+
+    </form>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<html lang="fa" dir="rtl">
+    
+   <link rel = "stylesheet"
+   type = "text/css"
+   href = "4.css" />
+    
+
+
+<nav id="navbar">
+  <header>مستندات جاوا اسکریپت</header>
+  <ul>
+    <li><a class="nav-link" href="#Introduction">معرفی</a></li>
+    <li>
+      <a class="nav-link" href="#What_you_should_already_know"
+        >
+آنچه باید از قبل بدانید</a
+      >
+    </li>
+    <li>
+      <a class="nav-link" href="#JavaScript_and_Java">جاوا اسکریپت و جاوا</a>
+    </li>
+    <li><a class="nav-link" href="#Hello_world">سلام دنیا</a></li>
+    <li><a class="nav-link" href="#Variables">متغیرها</a></li>
+    <li>
+      <a class="nav-link" href="#Declaring_variables">تعریف متغیرها</a>
+    </li>
+    <li><a class="nav-link" href="#Variable_scope">حوزه تعریف متغیر</a></li>
+    <li><a class="nav-link" href="#Global_variables">متغیرهای گلوبال</a></li>
+    <li><a class="nav-link" href="#Constants">ثابت ها</a></li>
+    <li><a class="nav-link" href="#Data_types">انواع داده</a></li>
+    <li>
+      <a class="nav-link" href="#if...else_statement">if...else </a>
+    </li>
+    <li><a class="nav-link" href="#while_statement">while </a></li>
+    <li>
+      <a class="nav-link" href="#Function_declarations"
+        >تعریف توابع</a
+      >
+    </li>
+    <li><a class="nav-link" href="#Reference">مراجع</a></li>
+  </ul>
+</nav>
+<main id="main-doc">
+  <section class="main-section" id="Introduction">
+    <header>معرفی</header>
+    <article>
+      <p>
+       
+جاوا اسکریپت یک زبان برنامه نویسی متقاطع و شی گرا است. آی تی
+        یک زبان کوچک و سبک است داخل یک محیط میزبان (برای
+        به عنوان مثال ، یک مرورگر وب) ، جاوا اسکریپت را می توان به اشیاء متصل کرد
+        محیط آن برای کنترل برنامه ای بر روی آنها ..
+      </p>
+
+      <p>
+      
+JavaScript شامل یک کتابخانه استاندارد از اشیاء ، مانند Array ، Date ،
+        و ریاضیات ، و مجموعه اصلی عناصر زبان مانند اپراتورها ، کنترل هستند
+        ساختارها و بیانیه ها هسته JavaScript را می توان برای a
+        اهداف مختلف با افزودن آن با اشیاء اضافی. برای
+        مثال:
+      </p>
+      <ul>
+        <li>
+
+JavaScript سمت مشتری با تهیه اشیاء زبان اصلی را گسترش می دهد
+          برای کنترل یک مرورگر و مدل Document Object (DOM) آن. مثلا،
+          برنامه های افزودنی سمت مشتری به یک برنامه اجازه می دهد تا عناصر را روی آن قرار دهد
+          فرم HTML و پاسخ به رویدادهای کاربر مانند کلیک ماوس ، ورودی فرم ،
+          و پیمایش صفحه.
+        </li>
+        <li>
+
+سمت سرور JavaScript با تهیه اشیاء ، زبان اصلی را گسترش می دهد
+          مربوط به اجرای JavaScript روی یک سرور. به عنوان مثال ، سمت سرور
+          برنامه های افزودنی به یک برنامه کاربردی امکان برقراری ارتباط با یک پایگاه داده ،
+          تداوم اطلاعات را از یک فراخوان به دیگری ارائه می دهد
+          برنامه یا دستکاری های پرونده را روی یک سرور انجام دهید.
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="What_you_should_already_know">
+    <header>هر آنچه که از قبل باید بدانید</header>
+    <article>
+      <p>
+این راهنما فرض می کند که شما زمینه اصلی زیر را دارید:</p>
+
+      <ul>
+        <li>
+        
+درک کلی از اینترنت و شبکه جهانی وب (WWW).
+        </li>
+        <li>
+دانش خوب در مورد زبان نشانه گذاری HyperText (HTML).</li>
+        <li>
+      
+برخی از تجربه برنامه نویسی. اگر تازه وارد برنامه نویسی هستید ، یکی از آنها را امتحان کنید
+          آموزشهای مرتبط با صفحه اصلی درباره جاوا اسکریپت.
+        </li>
+      </ul>
+    </article>
+  </section>
+  <section class="main-section" id="JavaScript_and_Java">
+    <header>جاوا اسکریپت و جاوا</header>
+    <article>
+      <p>
+     
+جاوا اسکریپت و جاوا از بعضی جهات مشابه هستند اما اساساً متفاوت هستند
+        در بعضی دیگر زبان جاوا اسکریپت شباهت زیادی با جاوا دارد اما ندارد
+        تایپ استاتیک جاوا و بررسی نوع قوی. جاوا اسکریپت بیشترین موارد را دنبال می کند
+        نحو بیان جاوا ، نامگذاری کنوانسیون ها و کنترل جریان اصلی
+        ساختارهایی که دلیل تغییر نام آن از LiveScript به
+        جاوا اسکریپت
+      </p>
+
+      <p>
+     
+برخلاف سیستم کامپایل زمان کلاس جاوا که توسط این کلاس ساخته شده است
+        اعلامیه ها ، جاوا اسکریپت از یک سیستم زمان اجرا بر اساس کوچک پشتیبانی می کند
+        تعداد انواع داده ها که مقادیر عددی ، بولی و رشته ای را نشان می دهند.
+        جاوا اسکریپت به جای رایج تر ، یک مدل شیء مبتنی بر نمونه اولیه دارد
+        مدل شی مبتنی بر کلاس. مدل مبتنی بر نمونه اولیه پویایی را فراهم می کند
+        وراثت؛ یعنی آنچه به ارث رسیده می تواند برای اشیاء فردی متفاوت باشد.
+        جاوا اسکریپت همچنین از توابع بدون اعلامیه ویژه پشتیبانی می کند
+        الزامات. توابع می توانند خصوصیات اشیاء باشند
+        روشهای گسست
+      </p>
+      <p>
+
+JavaScript در مقایسه با جاوا یک زبان بسیار آزاد است. شما نمی کنید
+        باید تمام متغیرها ، کلاس ها و روش ها را اعلام کند. مجبور نیستی
+        در مورد اینکه آیا روش ها عمومی ، خصوصی یا محافظت شده است ، نگران باشید و
+        شما مجبور نیستید واسطها را پیاده کنید. متغیرها ، پارامترها و
+        انواع بازگشت عملکرد به صراحت تایپ نمی شوند.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Hello_world">
+    <header>سلام دنیا</header>
+    <article>
+
+برای شروع کار با نوشتن JavaScript ، Scratchpad را باز کرده و خود را بنویسید
+      اولین کد "سلام جهان" JavaScript:
+      <code
+        >function greetMe(yourName) { alert("Hello " + yourName); }
+        greetMe("World");
+      </code>
+
+
+كد موجود در پد را انتخاب كنيد و Ctrl + R را بزنيد تا تماشاي آن در شما باز شود
+      مرورگر!
+    </article>
+  </section>
+  <section class="main-section" id="Variables">
+    <header>Variables</header>
+    <p>
+      You use variables as symbolic names for values in your application. The
+      names of variables, called identifiers, conform to certain rules.
+    </p>
+    <p>
+      A JavaScript identifier must start with a letter, underscore (_), or
+      dollar sign ($); subsequent characters can also be digits (0-9). Because
+      JavaScript is case sensitive, letters include the characters "A" through
+      "Z" (uppercase) and the characters "a" through "z" (lowercase).
+    </p>
+    <p>
+      You can use ISO 8859-1 or Unicode letters such as å and ü in identifiers.
+      You can also use the Unicode escape sequences as characters in
+      identifiers. Some examples of legal names are Number_hits, temp99, and
+      _name.
+    </p>
+  </section>
+  <section class="main-section" id="Declaring_variables">
+    <header>Declaring variables</header>
+    <article>
+      You can declare a variable in three ways:
+      <p>
+        With the keyword var. For example, <code>var x = 42.</code> This syntax
+        can be used to declare both local and global variables.
+      </p>
+      <p>
+        By simply assigning it a value. For example, <code>x = 42.</code> This
+        always declares a global variable. It generates a strict JavaScript
+        warning. You shouldn't use this variant.
+      </p>
+      <p>
+        With the keyword let. For example,<code> let y = 13.</code> This syntax
+        can be used to declare a block scope local variable. See Variable scope
+        below.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Variable_scope">
+    <header>Variable scope</header>
+    <article>
+      <p>
+        When you declare a variable outside of any function, it is called a
+        global variable, because it is available to any other code in the
+        current document. When you declare a variable within a function, it is
+        called a local variable, because it is available only within that
+        function.
+      </p>
+
+      <p>
+        JavaScript before ECMAScript 2015 does not have block statement scope;
+        rather, a variable declared within a block is local to the function (or
+        global scope) that the block resides within. For example the following
+        code will log 5, because the scope of x is the function (or global
+        context) within which x is declared, not the block, which in this case
+        is an if statement.
+      </p>
+      <code>if (true) { var x = 5; } console.log(x); // 5</code>
+      <p>
+        This behavior changes, when using the let declaration introduced in
+        ECMAScript 2015.
+      </p>
+
+      <code
+        >if (true) { let y = 5; } console.log(y); // ReferenceError: y is not
+        defined</code
+      >
+    </article>
+  </section>
+  <section class="main-section" id="Global_variables">
+    <header>Global variables</header>
+    <article>
+      <p>
+        Global variables are in fact properties of the global object. In web
+        pages the global object is window, so you can set and access global
+        variables using the window.variable syntax.
+      </p>
+
+      <p>
+        Consequently, you can access global variables declared in one window or
+        frame from another window or frame by specifying the window or frame
+        name. For example, if a variable called phoneNumber is declared in a
+        document, you can refer to this variable from an iframe as
+        parent.phoneNumber.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Constants">
+    <header>Constants</header>
+    <article>
+      <p>
+        You can create a read-only, named constant with the const keyword. The
+        syntax of a constant identifier is the same as for a variable
+        identifier: it must start with a letter, underscore or dollar sign and
+        can contain alphabetic, numeric, or underscore characters.
+      </p>
+
+      <code>const PI = 3.14;</code>
+      <p>
+        A constant cannot change value through assignment or be re-declared
+        while the script is running. It has to be initialized to a value.
+      </p>
+
+      <p>
+        The scope rules for constants are the same as those for let block scope
+        variables. If the const keyword is omitted, the identifier is assumed to
+        represent a variable.
+      </p>
+
+      <p>
+        You cannot declare a constant with the same name as a function or
+        variable in the same scope. For example:
+      </p>
+
+      <code
+        >// THIS WILL CAUSE AN ERROR function f() {}; const f = 5; // THIS WILL
+        CAUSE AN ERROR ALSO function f() { const g = 5; var g; //statements
+        }</code
+      >
+      However, object attributes are not protected, so the following statement
+      is executed without problems.
+      <code
+        >const MY_OBJECT = {"key": "value"}; MY_OBJECT.key = "otherValue";</code
+      >
+    </article>
+  </section>
+  <section class="main-section" id="Data_types">
+    <header>Data types</header>
+    <article>
+      <p>The latest ECMAScript standard defines seven data types:</p>
+      <ul>
+        <li>
+          <p>Six data types that are primitives:</p>
+          <ul>
+            <li>Boolean. true and false.</li>
+            <li>
+              null. A special keyword denoting a null value. Because JavaScript
+              is case-sensitive, null is not the same as Null, NULL, or any
+              other variant.
+            </li>
+            <li>undefined. A top-level property whose value is undefined.</li>
+            <li>Number. 42 or 3.14159.</li>
+            <li>String. "Howdy"</li>
+            <li>
+              Symbol (new in ECMAScript 2015). A data type whose instances are
+              unique and immutable.
+            </li>
+          </ul>
+        </li>
+
+        <li>and Object</li>
+      </ul>
+      Although these data types are a relatively small amount, they enable you
+      to perform useful functions with your applications. Objects and functions
+      are the other fundamental elements in the language. You can think of
+      objects as named containers for values, and functions as procedures that
+      your application can perform.
+    </article>
+  </section>
+  <section class="main-section" id="if...else_statement">
+    <header>if...else statement</header>
+    <article>
+      Use the if statement to execute a statement if a logical condition is
+      true. Use the optional else clause to execute a statement if the condition
+      is false. An if statement looks as follows:
+
+      <code>if (condition) { statement_1; } else { statement_2; }</code>
+      condition can be any expression that evaluates to true or false. See
+      Boolean for an explanation of what evaluates to true and false. If
+      condition evaluates to true, statement_1 is executed; otherwise,
+      statement_2 is executed. statement_1 and statement_2 can be any statement,
+      including further nested if statements.
+      <p>
+        You may also compound the statements using else if to have multiple
+        conditions tested in sequence, as follows:
+      </p>
+      <code
+        >if (condition_1) { statement_1; } else if (condition_2) { statement_2;
+        } else if (condition_n) { statement_n; } else { statement_last; }
+      </code>
+      In the case of multiple conditions only the first logical condition which
+      evaluates to true will be executed. To execute multiple statements, group
+      them within a block statement ({ ... }) . In general, it's good practice
+      to always use block statements, especially when nesting if statements:
+
+      <code
+        >if (condition) { statement_1_runs_if_condition_is_true;
+        statement_2_runs_if_condition_is_true; } else {
+        statement_3_runs_if_condition_is_false;
+        statement_4_runs_if_condition_is_false; }</code
+      >
+      It is advisable to not use simple assignments in a conditional expression,
+      because the assignment can be confused with equality when glancing over
+      the code. For example, do not use the following code:
+      <code>if (x = y) { /* statements here */ }</code> If you need to use an
+      assignment in a conditional expression, a common practice is to put
+      additional parentheses around the assignment. For example:
+
+      <code>if ((x = y)) { /* statements here */ }</code>
+    </article>
+  </section>
+  <section class="main-section" id="while_statement">
+    <header>while statement</header>
+    <article>
+      A while statement executes its statements as long as a specified condition
+      evaluates to true. A while statement looks as follows:
+
+      <code>while (condition) statement</code> If the condition becomes false,
+      statement within the loop stops executing and control passes to the
+      statement following the loop.
+
+      <p>
+        The condition test occurs before statement in the loop is executed. If
+        the condition returns true, statement is executed and the condition is
+        tested again. If the condition returns false, execution stops and
+        control is passed to the statement following while.
+      </p>
+
+      <p>
+        To execute multiple statements, use a block statement ({ ... }) to group
+        those statements.
+      </p>
+
+      Example:
+
+      <p>The following while loop iterates as long as n is less than three:</p>
+
+      <code>var n = 0; var x = 0; while (n &lt; 3) { n++; x += n; }</code>
+      <p>
+        With each iteration, the loop increments n and adds that value to x.
+        Therefore, x and n take on the following values:
+      </p>
+
+      <ul>
+        <li>After the first pass: n = 1 and x = 1</li>
+        <li>After the second pass: n = 2 and x = 3</li>
+        <li>After the third pass: n = 3 and x = 6</li>
+      </ul>
+      <p>
+        After completing the third pass, the condition n &lt; 3 is no longer
+        true, so the loop terminates.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Function_declarations">
+    <header>Function declarations</header>
+    <article>
+      A function definition (also called a function declaration, or function
+      statement) consists of the function keyword, followed by:
+
+      <ul>
+        <li>The name of the function.</li>
+        <li>
+          A list of arguments to the function, enclosed in parentheses and
+          separated by commas.
+        </li>
+        <li>
+          The JavaScript statements that define the function, enclosed in curly
+          brackets, { }.
+        </li>
+      </ul>
+      <p>
+        For example, the following code defines a simple function named square:
+      </p>
+
+      <code>function square(number) { return number * number; }</code>
+      <p>
+        The function square takes one argument, called number. The function
+        consists of one statement that says to return the argument of the
+        function (that is, number) multiplied by itself. The return statement
+        specifies the value returned by the function.
+      </p>
+      <code>return number * number;</code>
+      <p>
+        Primitive parameters (such as a number) are passed to functions by
+        value; the value is passed to the function, but if the function changes
+        the value of the parameter, this change is not reflected globally or in
+        the calling function.
+      </p>
+    </article>
+  </section>
+  <section class="main-section" id="Reference">
+    <header>Reference</header>
+    <article>
+      <ul>
+        <li>
+          All the documentation in this page is taken from
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide"
+            target="_blank"
+            >MDN</a
+          >
+        </li>
+      </ul>
+    </article>
+  </section>
+</main>
