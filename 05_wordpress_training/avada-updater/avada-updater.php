@@ -20,6 +20,7 @@ $avada_lang_path               = $main_path . '04-avada-lang-bak/';
 $whole_site_backup_path        = $main_path . '05-whole-site-backup/';
 $log_files_path                = $main_path . '06-log-files/';
 $backup_zip_file_name          = $host_name . '-backup-' . date( 'Y-m-d' ) . '.zip';
+$backup_zip_file_path          = './' . $backup_zip_file_name;
 $main_log_file                 = 'update-log-file-' . date( 'Ymd' ) . '.log';
 
 $htaccess_lite_speed_config
@@ -33,10 +34,10 @@ HTACCESS;
 
 $avada_last_version    = '6.0.0';
 $avada_current_version = '6.1.2';
-$is_check_updraft      = true;
+$is_check_updraft      = false;
 $updraft_path          = 'wp-content/updraft/';
 $updraft_bak_path      = $main_path . '07-updraft-bak/';
-$has_backup_zip        = true;
+$has_backup_zip        = false;
 
 /*
  * Change max_execution_time
@@ -74,7 +75,7 @@ function msn_check_server_type() {
  * */
 function msn_write_on_log_file( $string, $file_name, $show_on_screen = true ) {
 
-	$string = '*****' . PHP_EOL . PHP_EOL . $string . PHP_EOL . PHP_EOL . '*************' . PHP_EOL;
+	$string = $string . PHP_EOL;
 	if ( file_exists( $file_name ) ) {
 		$file_content = file_get_contents( $file_name );
 		file_put_contents( $file_name, $string, FILE_APPEND | LOCK_EX );
@@ -87,6 +88,10 @@ function msn_write_on_log_file( $string, $file_name, $show_on_screen = true ) {
 		echo "<p style='font-size: 20px;font-weight: bold;'>$string</p>";
 		echo '<hr>';
 	}
+}
+
+function msn_section_separator() {
+	return PHP_EOL . '****************************' . PHP_EOL;
 }
 
 /*
@@ -119,23 +124,24 @@ function msn_check_critical_file_exist( $path, $type, $logfile ) {
 	if ( ! file_exists( $path ) ) {
 		switch ( $type ) {
 			case 'main_path':
-				$error_message .= 'You must define correct main path';
+				$error_message .= 'You must define correct main path!';
 				break;
 			case 'avada_file_path':
-				$error_message .= 'You must define correct avada file path';
+				$error_message .= 'You must define correct avada file path!';
 				break;
 			case 'avada_theme_file':
-				$error_message .= 'You must put theme zip file in 01-temp-new-version-files directory';
+				$error_message .= 'You must put theme zip file in 01-temp-new-version-files directory!';
 				break;
 			case 'avada_fusion_builder_file':
-				$error_message .= 'You must put fusion builder zip file in 01-temp-new-version-files directory';
+				$error_message .= 'You must put fusion builder zip file in 01-temp-new-version-files directory!';
 				break;
 			case 'avada_fusion_core_file':
-				$error_message .= 'You must put fusion core zip file in 01-temp-new-version-files directory';
+				$error_message .= 'You must put fusion core zip file in 01-temp-new-version-files directory!';
 				break;
 		}
 
 		msn_write_on_log_file( $error_message, $logfile );
+		msn_write_on_log_file( msn_section_separator(), $logfile );
 		//echo "<h1>$error_message</h1>";
 		die( '<h2>You can not continue!!!</h2>' );
 	}
@@ -172,7 +178,7 @@ function msn_is_dir_empty( $dir_name ) {
 /*
  * Move all files in a directory
  * */
-function msn_move_all_files( $dir, $new_dir, $logfile = null, $is_updraft = false ) {
+function msn_move_all_files( $dir, $new_dir, $logfile = null, $unwanted_files = [] ) {
 	// Open a known directory, and proceed to read its contents
 	if ( is_dir( $dir ) ) {
 		if ( $dh = opendir( $dir ) ) {
@@ -184,15 +190,11 @@ function msn_move_all_files( $dir, $new_dir, $logfile = null, $is_updraft = fals
 				if ( $file == ".." ) {
 					continue;
 				}
-				if ( $is_updraft ) {
-					if ( $file == ".htaccess" ) {
-						continue;
-					}
-					if ( $file == "index.html" ) {
-						continue;
-					}
-					if ( $file == "web.config" ) {
-						continue;
+				if ( ! empty( $unwanted_files ) ) {
+					foreach ( $unwanted_files as $unwanted_file ) {
+						if ( $file == $unwanted_file ) {
+							continue 2;
+						}
 					}
 				}
 
@@ -399,6 +401,7 @@ if ( msn_check_server_type() == 'litespeed' ) {
 } else {
 	$msn_writing_message = 'It is not LiteSpeed Server. So nothing write on htaccess file. Date is : ' . date( 'Y-m-d  H:i:s' ) . '.';
 	msn_write_on_log_file( $msn_writing_message, $main_log_file );
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
 }
 
 
@@ -433,6 +436,7 @@ $important_directories = [
 foreach ( $important_directories as $important_directory ) {
 	msn_check_directory_exist( $important_directory[0], $important_directory[1], $main_log_file );
 }
+msn_write_on_log_file( msn_section_separator(), $main_log_file );
 
 /*
  * moving old avada files and change them with new files
@@ -445,9 +449,12 @@ if ( ! msn_is_dir_empty( $avada_new_version_path ) ) {
 	}
 	msn_move_all_files( $avada_new_version_path, $last_version_avada_directory, $main_log_file );
 	msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
 } else {
 	$msn_message_for_empty_dir = 'There is nothing to archive last Avada files: ' . date( 'Y-m-d  H:i:s' );
 	msn_write_on_log_file( $msn_message_for_empty_dir, $main_log_file );
+	msn_move_all_files( $avada_new_files_temp_path, $avada_new_version_path, $main_log_file );
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
 }
 
 /*
@@ -461,11 +468,12 @@ $avada_new_fusion_core_file    = $avada_new_version_path . 'fusion-core-new.zip'
 /*
  * move updraft files (if it's exist)
  * */
-/*if ( $is_check_updraft ) {
+if ( $is_check_updraft ) {
 	echo '<h2>back up results for updraft files</h2>';
-	msn_move_all_files( $updraft_path, $updraft_bak_path, $main_log_file, true );
-	echo '<hr>';
-}*/
+	$updraft_unwanted_files = [ ".htaccess", "index.html", "web.config" ];
+	msn_move_all_files( $updraft_path, $updraft_bak_path, $main_log_file, $updraft_unwanted_files );
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
+}
 
 /*
  * zip all of data in root directory
@@ -475,34 +483,61 @@ $avada_new_fusion_core_file    = $avada_new_version_path . 'fusion-core-new.zip'
  * https://stackoverflow.com/questions/7739870/increase-max-execution-time-for-php
  *
  *
- * */ /*
+ * */
+/*
  * zip all of file in wp root directory
  * https://stackoverflow.com/questions/36287554/php-ziparchive-file-permissions
  * https://gist.github.com/mikamboo/9205589
  * https://stackoverflow.com/questions/9262622/set-permissions-for-all-files-and-folders-recursively
  * */
-{
-	if ( $has_backup_zip ) {
-		echo 'yes!!!';
+
+function msn_move_file( $old_path, $new_path, $log_file, $type = 'zipped-site-backup' ) {
+	$msn_moving_message = [];
+	if ( $type == 'zipped-site-backup' ) {
+		$msn_moving_message = [
+			'successful'   => 'Zipped whole site backeup file is successfully move to backup directory on : ',
+			'unsuccessful' => 'Unfortunately we can not move zipped whole site backup file to backup directory! The Date for this message is : ',
+		];
+	}
+	$msn_moving_result = rename( $old_path, $new_path );
+	if ( $msn_moving_result ) {
+		$msn_moving_message = $msn_moving_message['successful'] . date( 'Y-m-d  H:i:s' ) . ' .';
+		msn_write_on_log_file( $msn_moving_message, $log_file );
 	} else {
-		//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
-		$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
-		if ( $result_of_zipping === false ) {
-			echo 'We can not zip your data!<br>';
-			echo '<hr>';
-		} else {
-			echo 'Zipping your file is successful!<br>';
-			echo '<hr>';
+		$msn_moving_message = $msn_moving_message['unsuccessful'] . date( 'Y-m-d  H:i:s' );
+		msn_write_on_log_file( $msn_moving_message, $log_file );
+	}
+}
+
+if ( $has_backup_zip ) {
+	$msn_zipping_message = 'No need to zip Data! The Date for checking is : ' . date( 'Y-m-d  H:i:s' );
+	msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+	if ( file_exists( $backup_zip_file_path ) ) {
+		msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
+	}
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
+} else {
+	//$result_of_zipping = msn_zip_data( $main_wordpress_path, $whole_site_backup_path . 'backup.zip', 'windows' );
+	$result_of_zipping = msn_zip_data( $main_wordpress_path, $backup_zip_file_name );
+	if ( $result_of_zipping === false ) {
+		echo 'We can not zip your data!<br>';
+		echo '<hr>';
+		$msn_zipping_message = 'Unfortunately we can not zip whole of site file! The Date for this message: ' . date( 'Y-m-d  H:i:s' ) . '.';
+		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
+	} else {
+		$msn_zipping_message = 'Zipping whole site files backup was successfully done on: ' . date( 'Y-m-d  H:i:s' ) . '.';
+		msn_write_on_log_file( $msn_zipping_message, $main_log_file );
+		if ( file_exists( $backup_zip_file_path ) ) {
+			msn_move_file( $backup_zip_file_path, $whole_site_backup_path . $backup_zip_file_name, $main_log_file );
 		}
+		msn_write_on_log_file( msn_section_separator(), $main_log_file );
 	}
 }
 
 
-/*if ( $is_check_updraft ) {
-
-	$updraft_path     = 'wp-content/updraft/';
-	$updraft_bak_path = $main_path . 'updraft-bak/';
+if ( $is_check_updraft ) {
 	echo '<h2>Results for moving updraft files to original directory</h2>';
-	msn_move_all_files( $updraft_bak_path, $updraft_path, $main_log_file, true);
-	echo '<hr>';
-}*/
+	msn_move_all_files( $updraft_bak_path, $updraft_path, $main_log_file );
+	msn_write_on_log_file( msn_section_separator(), $main_log_file );
+}
